@@ -1,5 +1,6 @@
 package com.ouc.pces.controller;
 
+import com.ouc.pces.DTO.ResponseDTO;
 import com.ouc.pces.entity.College;
 import com.ouc.pces.entity.Major;
 import com.ouc.pces.entity.Tag;
@@ -22,7 +23,7 @@ public class TagController {
     TagService tagService;
 
     @ApiOperation(value = "所有标签", notes = "获取所有可添加标签")
-    @GetMapping(value = "", produces = "application/json")
+    @GetMapping(value = "/getAll", produces = "application/json")
     public ArrayList<TagType> getAllTagType() {
         return tagService.selectAll();
     }
@@ -32,5 +33,12 @@ public class TagController {
     public ArrayList<Tag> getTagByCourseId(@ApiParam(value = "课程ID", required = true)
                                                  @PathVariable(value = "courseId") int courseId) {
         return tagService.selectTagsByCourseId(courseId);
+    }
+
+    @ApiOperation(value = "添加标签", notes = "根据课程ID添加标签")
+    @PostMapping(value = "/add", produces = "application/json")
+    public ResponseDTO addTagsByCourseId(@RequestBody ArrayList<Tag> tags) {
+        int result = tagService.addTags(tags);
+        return new ResponseDTO(ResponseDTO.OK);     //默认添加评论一定成功
     }
 }

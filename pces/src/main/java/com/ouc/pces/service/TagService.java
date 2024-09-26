@@ -24,4 +24,18 @@ public class TagService {
         return tagMapper.selectTagsByCourseId(courseId);
     }
 
+    public int addTags(ArrayList<Tag> tags) {
+        ArrayList<Tag> insert_tags = new ArrayList<>();
+        ArrayList<Tag> update_tags = new ArrayList<>();
+        for (Tag tag : tags) {
+            if (tagMapper.checkIsExist(tag.getCourseId(), tag.getTagId()) == 0) {
+                insert_tags.add(tag);
+            } else {
+                update_tags.add(tag);
+            }
+        }
+        if(!insert_tags.isEmpty()) tagMapper.insertTags(insert_tags);
+        if(!update_tags.isEmpty()) tagMapper.updateTags(update_tags);
+        return 1;
+    }
 }

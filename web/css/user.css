@@ -1,5 +1,6 @@
 body {
     background-color: red;
+    position: relative;
 }
 
 #div1, #div2, #div3{
@@ -20,22 +21,21 @@ body {
 
 
 #buttonBox{
-    padding: 20px 0px;
+    padding: 20px 0;
 
 }
 
-#userBox{
-    position:fixed;
+#userBox {
+    position: absolute;
     left: 50%;
-    top: 40%;
     width: 60%;
-    height: 55%;
     background-color: #ffffff;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
 }
-
-.footer{
-     width: 100%;
-     position: absolute;
-     bottom: 0;
- }
+/* 
+.user-footer{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+} */

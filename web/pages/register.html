@@ -19,74 +19,85 @@
 <body>
 <!-- header -->
 <header class="header fixed-top">
+
     <div class="branding">
         <div class="container-fluid position-relative pt-2">
             <div class="logo-wrapper">
                 <div class="site-logo">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="index.html">
                         <img class="logo-icon mr-2" src="../img/logo.svg" alt="logo">
                         <span class="logo-text">PCES<span class="text-alt">评课网</span></span>
                     </a>
                 </div>
             </div>
             <div class="d-flex justify-content-end align-items-center pt-2">
-				<form class="search-form" id="search-form">
-					<input type="text" placeholder="你可能感兴趣的课程..." name="search" class="form-control search-input">
-					<button type="submit" class="btn search-btn" value="Search"><i class="fa fa-search"></i></button>
-				</form>
-                <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex">
-                    <li class="list-inline-item"><a href="https://www.github.com"><i class="fa fa-github"></i></a></li>
+                <form class="search-form" id="search-form" action="search_result.html">
+                    <input type="text" placeholder="你可能感兴趣的课程..." name="search" class="form-control search-input">
+                    <button class="btn search-btn" ><i class="fa fa-search"></i></button>
+                </form>
+                <ul class="top-icon mx-md-3 mx-lg-5 mb-0 d-none d-lg-flex hiddenx" id="icon">
+                    <li class="list-inline-item">
+                        <a href="user.html"><i class="fa fa-github"></i></a>
+                        <p5 id="navname"></p5>
+                    </li>
                 </ul>
-                <a href="" class="btn btn-primary d-none d-lg-flex" id="login">登录/注册</a>
+
+                <a href="login.html" class="btn btn-primary d-none d-lg-flex hiddenx" id="login" >登录/注册</a>
             </div>
         </div>
     </div>
 </header>
 <br/>
 <div class="container">
-        <div class="row clearfix">
-            <div class="col-md-2 column">
-            </div>
-            <div class="col-md-8 column">
-            
-                <form role="form">
-                    <div class="form-group">
-                         <label for="exampleInputEmail1">用户名：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                    </div>
-                    <div class="form-group">
-                            <label for="exampleInputEmail1">密码：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                       </div>
-                       <div class="form-group">
-                            <label for="exampleInputEmail1">学号：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                       </div>
-                       <div class="form-group">
-                            <label for="exampleInputEmail1">邮箱：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                       </div>
-                       <div class="form-group">
-                            <td><label>性别</label></td>
-                            <td><input type="radio" name="gender" value="male"> 男
-                                <input type="radio" name="gender" value="female"> 女
-                            </td>
-                       </div>
-                       
-                       <div class="form-group">
-                            <label for="exampleInputEmail1">年级：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                       </div>
-                       <div class="form-group">
-                            <label for="exampleInputEmail1">学院：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                       </div>
-                       <div class="form-group">
-                            <label for="exampleInputEmail1">专业：</label><input type="email" class="form-control" id="exampleInputEmail1" />
-                       </div>
-                       <div class="logD logDtip">
-                            <p style="text-align:center;">注册</p>
-                        </div>
-                </form>
-            </div>
-            <div class="col-md-2 column">
+    <div class="row clearfix">
+        <div class="col-md-2 column">
+        </div>
+        <div class="col-md-8 column">
+
+            <form class="form-horizontal" role="form" action="">
+                <div class="form-group">
+                    <label for="nickname">昵称：</label><input type="text" class="form-control" id="nickname" required="required"/>
                 </div>
+                <div class="form-group">
+                    <label for="studentId">学号：</label><input type="text" class="form-control" id="studentId" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">密码：</label><input type="password" class="form-control" id="password" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="mail">邮箱：</label><input type="email" class="form-control" id="mail" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="name">姓名：</label><input type="text" class="form-control" id="name" required="required" />
+                </div>
+                <div class="form-group">
+                    <label for="grade">年级：</label><input class="form-control" id="grade" required="required"/>
+                </div>
+                <div class="form-group">
+                    <label for="college">学院：</label>
+                    <select id="college" name="college" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                            border-color: #e0f7e6;"  onchange="changeMajor()" required="required">
+                        <option value="" selected="selected"> </option>
+                    </select>
+                </div>
+                <div class="select">
+                    <label for="major">专业：</label>
+                    <select id="major" name="major" style="width:100%;padding-top: 0.875rem;padding-bottom: 0.875rem;height: 3rem;
+                        border-color: #e0f7e6;" required="required">
+                        <option value="" selected="selected"> </option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <div class="logD logDtip" style="text-align:center;">
+                    <button class="btn btn-primary" type="button" onclick="register()">注册</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-2 column">
         </div>
     </div>
+</div>
 
 
 <!-- footer -->
@@ -107,6 +118,22 @@
 <!-- Javascript -->
 <script src="../js/jquery-3.4.1.js"></script>
 <script src="../js/bootstrap.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/register.js"></script>
+<script>
+    // 没登录
+    if(getCookie("user")===undefined || getCookie("user")==="")
+    {
+
+        document.getElementById("icon").classList.add("hiddenx");
+        document.getElementById("login").classList.remove("hiddenx");
+    }
+    else{
+        // document.getElementById("navname").innerText = getCookie("user").nickname;
+        document.getElementById("login").classList.add("hiddenx");
+        document.getElementById("icon").classList.remove("hiddenx");
+    }
+</script>
 
 </body>
 </html> 
